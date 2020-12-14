@@ -62,7 +62,7 @@ class CPU:
             self.register[register_a] = register_b
             self.programCounter += 3
         elif operation == self.PRN:
-            print(self.registerp[register_a])
+            print(self.register[register_a])
             self.programCounter += 2
         elif operation == self.MUL:
             self.register[register_a] *= self.register[register_b]
@@ -73,7 +73,7 @@ class CPU:
             self.register[self.stackPointer] -= 1
             self.ram[self.register[self.stackPointer]] = value
             self.programCounter += 2
-        elif operation == self.POPeration:
+        elif operation == self.POP:
             registerAddress = self.ram[self.programCounter + 1]
             self.register[registerAddress] = self.ram[self.register[self.stackPointer]]
             self.register[self.stackPointer] += 1
